@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tighten Docs"
+  short_description: "Tighten existing docs after correction."
+  default_prompt: "Tighten the selected document or diff in place. Apply the latest correction, remove defensive or resurrected text, do not invent legacy requirements, preserve the required language and locale, and keep real identifiers intact."
