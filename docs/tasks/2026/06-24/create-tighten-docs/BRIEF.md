@@ -22,17 +22,18 @@
 
 - 로컬 git 리포가 초기화됐고, `origin`은 `https://github.com/perhapsspy/tighten-docs.git`로 설정됐다.
 - 로컬 리포 디렉터리도 `tighten-docs` 이름으로 이동됐다.
+- `main`은 GitHub origin에 push됐고, 스킬은 `$CODEX_HOME/skills/tighten-docs`에 설치됐다.
 - 배포 스킬 본문과 한국어 페어, OpenAI 인터페이스 프롬프트, README가 위 방어선에 맞게 정리됐다.
 - 스킬 기준을 리포 문서에 자기적용해 README의 예시와 사용 사례를 더 짧고 쉬운 문장으로 압축했다.
 - `docs/reference/skill-repository.md`는 AGENTS/README/스킬 본문과 겹쳐 삭제했다.
 - 루트에는 `.gitignore`, `.gitattributes`, `.editorconfig` 수준의 최소 리포 위생 파일만 추가됐다.
 - `SKILL.md`는 관련 스킬을 직접 참조하지 않고 독립 실행 계약으로 유지된다.
 - `skill-creator` quick validation, `project-context` shape 검사, worklog/decision log shape 검사를 다시 통과했다.
-- 아직 초기 커밋은 없으며 전체 리포 파일은 untracked 상태다.
+- 설치된 스킬 복사본도 `skill-creator` quick validation을 통과했다.
 
 ## Next Step
 
-- 커밋/푸시가 필요하면 현재 untracked 파일 전체를 마지막으로 검토한 뒤 초기 커밋을 만든다.
+- Codex가 새 스킬을 읽도록 하려면 Codex를 재시작한다.
 
 ## Working Boundary
 
