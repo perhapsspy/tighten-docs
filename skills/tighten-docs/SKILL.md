@@ -17,6 +17,7 @@ This skill is for corrective editorial passes, not document generation, source-o
 - Apply the latest correction as final text, not commentary about the correction.
 - Delete rejected, stale, or prohibited material instead of preserving it as a warning or rationale.
 - Do not add legacy compatibility, fallback, exception, or routing language unless the selected target or correction proves it is still required.
+- Do not broaden a local correction into a new cross-document policy unless the user explicitly asks for that policy.
 - Remove defensive explanations, duplicate routes, process narration, apology-style prose, and meta-comments about the edit.
 - Preserve the required document language and locale. Keep real code identifiers, API names, file paths, commands, product names, and domain terms intact.
 - Keep only current facts that remain relevant and do not conflict with the correction.

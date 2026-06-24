@@ -13,3 +13,5 @@
 - 추천 이름 tighten-docs를 확정해 skills/tighten-docs로 폴더를 바꾸고, SKILL.md frontmatter name, README 설치/호출 예시, AGENTS, OpenAI display_name, task slug와 BRIEF 경로를 일괄 갱신했다.
 - 로컬 리포 디렉터리를 tighten-docs 이름으로 이동하고 origin URL도 https://github.com/perhapsspy/tighten-docs.git로 바꿨다. 새 경로 기준으로 skill-creator quick_validate, project-context runtime shape, worklog/decision log shape 검증을 다시 통과했다.
 - 초기 커밋을 만들고 origin main에 push했다. GitHub 원격은 https://github.com/perhapsspy/tighten-docs.git이며, skill-installer 스크립트로 skills/tighten-docs를 $CODEX_HOME/skills/tighten-docs에 설치했다. 설치된 복사본도 skill-creator quick_validate를 통과했다.
+- 후보 문구를 기존 스킬 경계와 대조해 타당하다고 판단하고, skills/tighten-docs/SKILL.md에는 원문 규칙을, SKILL.ko.md에는 특정 사례에 묶이지 않는 한국어 페어 문장을 추가했다. README, docs/skill-direction.md, agents/openai.yaml은 중복 표면을 늘리지 않기 위해 수정하지 않았다. 검증은 임시 venv의 PyYAML로 skill-creator quick_validate 통과, project-context runtime shape 통과.
+- 로컬 리포의 skills/tighten-docs를 /skills/tighten-docs 설치본에 동기화했고, 설치본 skill-creator quick_validate와 리포/설치본 파일 비교를 통과했다.

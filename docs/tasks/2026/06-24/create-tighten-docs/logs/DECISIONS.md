@@ -24,3 +24,9 @@
 - Decision: 스킬명과 리포명을 tighten-docs로 줄인다.
 - Why: tighten-docs는 동사형 호출이 자연스럽고, 교정 편집 대상이 문서라는 점을 유지하면서 tighten-doc-revisions보다 짧다.
 - Impact: 스킬 폴더, frontmatter name, README 설치/호출 예시, AGENTS, task slug, origin URL, 로컬 리포 디렉터리를 tighten-docs 기준으로 맞춘다.
+
+**2026-06-24**
+- Background: 사용자가 국소 교정을 여러 문서의 새 정책이나 방어문으로 확대하는 실패를 막는 후보 문구를 검토해 달라고 했다.
+- Decision: tighten-docs 배포 스킬에는 국소 교정을 명시 요청 없는 cross-document policy로 넓히지 말라는 규칙을 추가하고, README나 방향 문서에는 반복하지 않는다.
+- Why: 기존 selected target, duplicate routes, documentation architecture 경계와 같은 방향이지만, 최신 지적에 과적응해 전역 정책을 만드는 실패를 더 직접적으로 막는다.
+- Impact: 영어 기본 SKILL.md와 한국어 페어만 갱신하며, 후속 배포나 설치본 동기화가 필요하면 별도 작업으로 다룬다.
