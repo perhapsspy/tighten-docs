@@ -1,15 +1,16 @@
 ---
 name: tighten-docs
-description: Tighten already-selected documentation or diffs after user or reviewer correction. Use when Codex must revise the existing target in place, apply the latest correction, delete rejected content instead of preserving it as warnings, remove defensive or explanatory bloat, avoid inventing legacy compatibility requirements, preserve the user or repository's required language and locale, and keep code/API identifiers intact. Do not use for creating new documentation from scratch, source-owner discovery, task-state storage, or broad documentation restructuring.
+description: Use to tighten, revise, or clean up a selected, named, or just-created document or diff after user or reviewer feedback, including unwanted mixed-language prose. Apply the latest correction in place by shortening or clarifying existing text, deleting rejected or stale material, removing defensive or explanatory bloat, avoiding invented legacy compatibility requirements, enforcing the required prose language and locale, and preserving real code/API identifiers, paths, commands, product names, and domain terms. Skip new-document creation, source-of-truth or ownership audits, task-state or handoff docs, broad documentation restructuring, translation-only work, and implementation planning.
 ---
 
 # Tighten Docs
 
 ## Purpose
 
-Tighten an already selected document or diff after user or reviewer correction. Edit the existing target in place so it is shorter, clearer, and faithful to the latest correction.
+Tighten a selected, named, or just-created document or diff after user or reviewer correction. Edit the existing target in place so it is shorter, clearer, and faithful to the latest correction.
 
 This skill is for corrective editorial passes, not document generation, source-of-truth audit, task-state storage, or documentation architecture.
+This includes language-expression cleanup when the target already has a required prose language and contains unnecessary prose in another language.
 
 ## Rules
 
@@ -19,18 +20,21 @@ This skill is for corrective editorial passes, not document generation, source-o
 - Do not add legacy compatibility, fallback, exception, or routing language unless the selected target or correction proves it is still required.
 - Do not broaden a local correction into a new cross-document policy unless the user explicitly asks for that policy.
 - Remove defensive explanations, duplicate routes, process narration, apology-style prose, and meta-comments about the edit.
-- Preserve the required document language and locale. Keep real code identifiers, API names, file paths, commands, product names, and domain terms intact.
+- Determine the required prose language and locale from the selected target, repository or user instruction, and latest correction. If it is clear, rewrite kept prose into that language and delete duplicated, stale, or unnecessary prose in any other language. If it is unclear or conflicting, ask briefly.
+- Preserve literal terms that should remain unchanged: code identifiers, API names, file paths, commands, product names, domain terms, quoted protocol text, and externally owned labels.
 - Keep only current facts that remain relevant and do not conflict with the correction.
 
 ## Editing Pass
 
-1. Read the selected target and the correction.
-2. Mark each sentence as keep, replace, delete, or compress.
-3. Replace stale wording with the corrected final state.
-4. Merge repeated explanations into one short statement.
-5. Remove rejected material, defensive prose, imagined legacy requirements, and process narration.
-6. Re-read for language consistency and reviewable density.
+1. Read the selected target and latest correction.
+2. Identify the required prose language/locale and literal terms that must remain unchanged.
+3. Mark each sentence as keep, replace, delete, compress, or language-fix.
+4. Replace stale wording with the corrected final state.
+5. Delete rejected material, defensive prose, imagined legacy requirements, duplicated non-required-language prose, and process narration.
+6. Rewrite kept prose that uses a non-required language into the required prose language.
+7. Merge repeated explanations into one short statement.
+8. Re-read for no resurrected material, no invented legacy requirement, no unnecessary non-required-language prose, and reviewable density.
 
 ## Stop Conditions
 
-Stop and ask or hand off when the task requires choosing the source of truth, deciding document ownership, restructuring a documentation package, designing task state or logs, creating a new document, or changing implementation plans.
+Stop and ask or hand off when the task is pure translation/localization, requires choosing the source of truth, deciding document ownership, restructuring a documentation package, designing task state or handoff docs, creating a new document, or changing implementation plans.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Tighten Docs"
-  short_description: "Tighten existing docs after correction."
-  default_prompt: "Tighten the selected document or diff in place. Apply the latest correction, remove defensive or resurrected text, do not invent legacy requirements, preserve the required language and locale, and keep real identifiers intact."
+  short_description: "Tighten selected docs or diffs after feedback."
+  default_prompt: "Tighten the selected or named document/diff in place. Apply the latest correction as final prose, delete rejected or defensive text, remove unnecessary prose in any non-required language when the required prose language is clear, ask briefly if it is unclear or conflicting, preserve the required prose language and locale, keep real identifiers intact, and do not create new docs, audit sources, restructure doc packages, write handoff/task-state docs, do translation-only work, or plan implementation."
