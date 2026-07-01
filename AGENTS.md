@@ -11,4 +11,5 @@
 
 - README는 소개, 설치, 사용 진입점, 관련 스킬 안내, 기본 지원/라이선스 안내를 맡는다.
 - `docs/skill-direction.md`는 방향과 진화 기준을 맡는다.
+- `docs/reference/skill-maintenance-runbook.md`는 검증, 설치본 동기화, 커밋/푸시 절차를 맡는다.
 - `skills/tighten-docs/`는 배포되는 스킬 본문을 맡는다.
