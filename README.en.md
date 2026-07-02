@@ -38,10 +38,6 @@ Use $tighten-docs to turn the removal request in this diff into actual deletion.
 - Removal requests are reappearing as warnings, routing, or defensive wording
 - The document language must stay intact while identifiers, paths, and product names remain unchanged
 
-## Related Skills
-
-This skill works independently. Other skills are better for new documentation architecture or source-of-truth audits.
-
 ## Support
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/perhapsspy)

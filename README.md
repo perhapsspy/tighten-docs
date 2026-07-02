@@ -38,10 +38,6 @@ $tighten-docs 이 diff에서 삭제 요청을 실제 삭제로 반영해줘.
 - 삭제 요청이 경고, 라우팅, 방어적 문구로 되살아날 때
 - 문서 언어는 지키고 코드 식별자, 경로, 제품명은 그대로 둬야 할 때
 
-## 관련 스킬
-
-이 스킬은 독립적으로 동작합니다. 새 문서 구조 설계나 기준 소스 감사는 다른 스킬이 더 적합합니다.
-
 ## 지원
 
 [![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/perhapsspy)
