@@ -1,4 +1,4 @@
 interface:
   display_name: "Tighten Docs"
   short_description: "Tighten docs while drafting or after feedback."
-  default_prompt: "Tighten the selected, named, concretely requested, or just-created document/diff in place. Apply the latest correction or drafting constraint as final prose, delete rejected or defensive text, rewrite kept prose in the required language, delete duplicated, stale, or extra prose in non-required languages, ask briefly for the target surface or required language if unclear, keep real identifiers intact, and hand off source audits, new documentation surface decisions, doc package restructuring, handoff/task-state docs, translation-only work, and implementation planning."
+  default_prompt: "Use $tighten-docs to make this documentation clear, current, and concise while preserving required facts and identifiers."
