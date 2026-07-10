@@ -1,4 +1,4 @@
 interface:
   display_name: "Tighten Docs"
-  short_description: "Tighten docs while drafting or after feedback."
-  default_prompt: "Use $tighten-docs to make this documentation clear, current, and concise while preserving required facts and identifiers."
+  short_description: "Tighten docs and organize selected doc packages."
+  default_prompt: "Use $tighten-docs to make this selected document or documentation package clear, current, concise, and non-duplicative."
