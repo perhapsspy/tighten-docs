@@ -4,18 +4,15 @@
 
 ## Summary
 
-`tighten-docs` makes an already selected or concretely requested document, diff, or documentation package read as one clear current final state. It tightens prose and organizes package roles, reader routes, and current ownership.
+`tighten-docs` fixes documentation that is hard to enter or gives the same decision different answers in different files. It makes selected prose shorter and clearer, then separates current guidance from drafts, logs, and stale material.
 
 It focuses on these outcomes:
 
-- Apply the latest correction as final text.
-- Apply drafting constraints to the body from the start.
-- Turn removal requests into actual deletion.
-- Separate current canon from evidence, logs, drafts, and stale material.
-- Give each current decision, contract, gate, or plan one owning document.
-- Keep legacy compatibility claims only when proven.
-- Preserve the document's required language and locale.
-- Do not invent facts, policies, decisions, or implementation meaning.
+- Apply the latest correction directly to the final prose.
+- Turn removal requests into actual deletion instead of warnings or workarounds.
+- Separate current guidance from logs, drafts, and stale material.
+- Keep one current answer for each decision or plan.
+- Do not invent facts or policy that the source does not support.
 
 ## Quick Start
 
