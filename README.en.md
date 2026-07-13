@@ -12,6 +12,7 @@ It focuses on these outcomes:
 - Turn removal requests into actual deletion instead of warnings or workarounds.
 - Separate current guidance from logs, drafts, and stale material.
 - Keep one current answer for each decision or plan.
+- Split only material with an independent use; keep a coherent contract or procedure together.
 - Do not invent facts or policy that the source does not support.
 
 ## Quick Start
@@ -46,6 +47,7 @@ Use $tighten-docs to review this migration documentation package without editing
 - Removal requests are reappearing as warnings, routing, or defensive wording
 - The document language must stay intact while identifiers, paths, and product names remain unchanged
 - A selected documentation package has conflicting entrypoints, reader routes, or current owners
+- Document boundaries are causing fragmentation, link mazes, or competing canonical guidance
 - Evidence, logs, drafts, or archived material look like current canon
 - A runbook needs its preconditions, stop conditions, approval boundary, evidence, rollback, and recovery checked
 
