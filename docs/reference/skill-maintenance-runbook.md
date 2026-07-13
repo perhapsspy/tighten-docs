@@ -2,74 +2,93 @@
 
 ## 목적
 
-- `tighten-docs` 스킬 계약을 바꾼 뒤 검증, 설치본 동기화, 커밋, 푸시까지 닫는 절차를 소유한다.
-- 이 문서는 배포 절차만 다루며, 스킬 방향은 `docs/skill-direction.md`, 배포 스킬 본문은 `skills/tighten-docs/SKILL.md`가 소유한다.
+`tighten-docs`의 변경을 검증하고, 승인된 경우에만 설치본·원격 저장소까지 안전하게 반영하는 절차다. 스킬 방향은 `docs/skill-direction.md`, 실행 계약은 `skills/tighten-docs/SKILL.md`가 소유한다.
 
-## 적용 범위
+## 시작 전
 
-- `skills/tighten-docs/SKILL.md` 또는 `SKILL.ko.md`를 바꾼 경우.
-- 스킬 방향 문서나 task 문서를 함께 정리한 경우.
-- 로컬 설치본이 repo 변경을 따라가야 하는 경우.
-
-## 절차
-
-1. 변경 범위를 확인한다.
+- 저장소 루트에서 실행한다.
+- 의도하지 않은 변경이 보이면 중단하고 범위를 확인한다.
+- 푸시는 사용자가 이번 작업에서 명시적으로 허용한 경우에만 한다.
 
 ```bash
 git status --short --untracked-files=all
 git diff --stat
 ```
 
-2. 스킬 본문을 검증한다.
+## 검증
+
+1. 설치된 `skill-creator`의 검증 스크립트를 찾고 스킬을 검사한다.
 
 ```bash
-python3 $CODEX_HOME/skills/.system/skill-creator/scripts/quick_validate.py skills/tighten-docs
+skill_creator_root="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator"
+test -f "$skill_creator_root/scripts/quick_validate.py" || {
+  echo "skill-creator validation script not found: $skill_creator_root" >&2
+  exit 1
+}
+python3 "$skill_creator_root/scripts/quick_validate.py" skills/tighten-docs
 ```
 
-`PyYAML`이 없는 Python이면 임시 venv에 `PyYAML`을 설치하고 같은 스크립트를 다시 실행한다. 이 경우 repo에는 의존성 파일을 추가하지 않는다.
+`PyYAML`이 없다면 임시 가상환경에만 설치하고 같은 명령을 다시 실행한다. 저장소에 임시 의존성 파일을 추가하지 않는다.
 
-3. project-context task 문서가 있으면 shape을 확인한다.
+2. `project-context` task가 있는 저장소라면 task 구조를 검사한다.
 
 ```bash
-python3 <project-context-skill>/scripts/check_runtime_shape.py --repo-root .
+project_context_root="$HOME/.agents/skills/project-context"
+if test -d docs/tasks; then
+  test -f "$project_context_root/scripts/check_runtime_shape.py" || {
+    echo "project-context checker not found: $project_context_root" >&2
+    exit 1
+  }
+  python3 "$project_context_root/scripts/check_runtime_shape.py" --repo-root .
+fi
 ```
 
-4. whitespace 오류를 확인한다.
+3. diff와 whitespace를 확인한다.
 
 ```bash
 git diff --check
-```
-
-5. 로컬 설치본을 갱신한다.
-
-```bash
-npx skills add . -g -s tighten-docs -y --copy
-```
-
-Codex 설치본이 repo와 같은지 확인한다.
-
-```bash
-diff -u skills/tighten-docs/SKILL.md <global-skills-dir>/tighten-docs/SKILL.md
-diff -u skills/tighten-docs/SKILL.ko.md <global-skills-dir>/tighten-docs/SKILL.ko.md
-```
-
-6. 커밋 전에 한 번 더 검증 결과와 diff 범위를 확인한다.
-
-```bash
 git status --short --untracked-files=all
 git diff --stat
 ```
 
-7. 커밋하고 푸시한다.
+검증 실패, 예상 밖 파일 변경, 원격과 충돌 가능성이 있으면 여기서 중단한다.
+
+## 로컬 설치본 갱신
+
+로컬 설치 갱신이 작업 범위에 포함된 경우에만 실행한다.
+
+```bash
+npx skills add . -g -s tighten-docs -y --copy
+diff -u skills/tighten-docs/SKILL.md "$HOME/.agents/skills/tighten-docs/SKILL.md"
+diff -u skills/tighten-docs/SKILL.ko.md "$HOME/.agents/skills/tighten-docs/SKILL.ko.md"
+```
+
+설치 명령이 실패하면 저장소 변경은 그대로 두고 오류를 보고한다. 기존 설치본을 임의로 삭제하지 않는다.
+
+## 커밋과 푸시
+
+1. 의도한 파일만 stage하고 staged diff를 검토한다.
 
 ```bash
 git add <intended-files>
+git diff --cached --stat
+git diff --cached --check
 git commit -m "<short change summary>"
+```
+
+2. 푸시 권한이 확인된 경우에만 원격 상태를 확인하고 푸시한다.
+
+```bash
+git fetch origin
+git status --short --branch
 git push
 ```
 
-## 주의
+원격이 앞서 있거나 push가 거부되면 자동으로 rebase, force-push, reset하지 않는다. 현재 branch와 오류를 보고하고 다음 조치를 결정한다.
 
-- 설치본 동기화와 repo 변경은 별개다. 스킬 파일을 고쳤으면 설치본 diff 확인까지 닫는다.
-- `README.md`는 사용자 설치/사용 진입점이고, 배포 절차를 반복 설명하지 않는다.
-- `SKILL.md` 안에는 유지보수 절차를 넣지 않는다. 배포 스킬 본문은 실행 계약만 소유한다.
+## 복구 기준
+
+- 커밋 전 실패: 작업 파일을 유지하고 실패 지점과 재실행 명령을 기록한다.
+- 커밋 후 push 전 실패: 로컬 커밋을 유지하고 commit SHA를 보고한다.
+- push 후 설치 갱신 실패: 원격 변경을 되돌리지 말고 설치 오류를 별도 문제로 다룬다.
+- 공개된 커밋을 되돌려야 한다면 새 revert commit을 사용한다. 공유 이력을 다시 쓰지 않는다.
