@@ -21,10 +21,11 @@
 - 공개 README·목록·runbook, 영어 SDK README·webhook 계약, 실제 저장소 README까지 세 라운드 dogfood를 마쳤다.
 - 공개 진입점은 결과와 다음 행동을 앞세웠고 기술·운영 문서는 절차 계약과 미결정 경계를 보존했다.
 - skill validator, task log 검사와 diff whitespace 검사를 통과했다. 전체 project-context 검사는 이번 diff 밖 유지보수 런북의 기존 환경별 경로 표기에서 실패한다.
+- 로컬 전역 설치본을 source runtime pair와 일치시켰고 변경 커밋을 원격 `main`에 배포했다.
 
 ## Next Step
 
-- 사용자가 허용하면 로컬 설치본 동기화와 release를 별도 작업으로 진행한다.
+- 새 배포 문제가 보고될 때 이 task를 다시 연다.
 
 ## Working Boundary
 
