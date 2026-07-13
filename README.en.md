@@ -2,18 +2,9 @@
 
 [한국어](README.md) | [English](README.en.md)
 
-## Summary
+## What does it fix?
 
 `tighten-docs` fixes documentation that is hard to enter or gives the same decision different answers in different files. It makes selected prose shorter and clearer, then separates current guidance from drafts, logs, and stale material.
-
-It focuses on these outcomes:
-
-- Apply the latest correction directly to the final prose.
-- Turn removal requests into actual deletion instead of warnings or workarounds.
-- Separate current guidance from logs, drafts, and stale material.
-- Keep one current answer for each decision or plan.
-- Split only material with an independent use; keep a coherent contract or procedure together.
-- Do not invent facts or policy that the source does not support.
 
 ## Quick Start
 
@@ -50,6 +41,15 @@ Use $tighten-docs to review this migration documentation package without editing
 - Document boundaries are causing fragmentation, link mazes, or competing canonical guidance
 - Evidence, logs, drafts, or archived material look like current canon
 - A runbook needs its preconditions, stop conditions, approval boundary, evidence, rollback, and recovery checked
+
+## How it works
+
+- Apply the latest correction directly to the final prose.
+- Turn removal requests into actual deletion instead of warnings or workarounds.
+- Separate current guidance from logs, drafts, and stale material.
+- Keep one current answer for each decision or plan.
+- Split only material with an independent use; keep a coherent contract or procedure together.
+- Do not invent facts or policy that the source does not support.
 
 ## Support
 
