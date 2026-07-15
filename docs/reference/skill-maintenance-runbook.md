@@ -20,7 +20,8 @@ git diff --stat
 1. 설치된 `skill-creator`의 검증 스크립트를 찾고 스킬을 검사한다.
 
 ```bash
-skill_creator_root="${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-creator"
+home_dir="$(cd && pwd)"
+skill_creator_root="${CODEX_HOME:-$home_dir/.codex}/skills/.system/skill-creator"
 test -f "$skill_creator_root/scripts/quick_validate.py" || {
   echo "skill-creator validation script not found: $skill_creator_root" >&2
   exit 1
@@ -33,7 +34,8 @@ python3 "$skill_creator_root/scripts/quick_validate.py" skills/tighten-docs
 2. `project-context` task가 있는 저장소라면 task 구조를 검사한다.
 
 ```bash
-project_context_root="$HOME/.agents/skills/project-context"
+home_dir="$(cd && pwd)"
+project_context_root="$home_dir/.agents/skills/project-context"
 if test -d docs/tasks; then
   test -f "$project_context_root/scripts/check_runtime_shape.py" || {
     echo "project-context checker not found: $project_context_root" >&2
@@ -59,8 +61,10 @@ git diff --stat
 
 ```bash
 npx skills add . -g -s tighten-docs -y --copy
-diff -u skills/tighten-docs/SKILL.md "$HOME/.agents/skills/tighten-docs/SKILL.md"
-diff -u skills/tighten-docs/SKILL.ko.md "$HOME/.agents/skills/tighten-docs/SKILL.ko.md"
+home_dir="$(cd && pwd)"
+installed_skill_root="$home_dir/.agents/skills/tighten-docs"
+diff -u skills/tighten-docs/SKILL.md "$installed_skill_root/SKILL.md"
+diff -u skills/tighten-docs/SKILL.ko.md "$installed_skill_root/SKILL.ko.md"
 ```
 
 설치 명령이 실패하면 저장소 변경은 그대로 두고 오류를 보고한다. 기존 설치본을 임의로 삭제하지 않는다.
